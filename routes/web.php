@@ -28,3 +28,8 @@ Route::post('/register', 'RegisterController@register');
 Route::get('/home', function () {
     return view('home');
 })->middleware('auth');
+
+Route::post('/upload', 'UploadController@upload');
+
+Route::get('/userinfo', 'UserController@userInfo');
+Route::put('/userinfo', 'UserController@update');
