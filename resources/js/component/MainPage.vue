@@ -54,15 +54,17 @@
               </div>
             </div>
             <div class="chat-control p-3">
-              <div class="form-group">
-                <label for="chat-content">发送消息：</label>
-                <input type="email" class="form-control" />
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">
-                  发送
-                </button>
-              </div>
+              <form v-on:submit.prevent="sendMessage">
+                <div class="form-group">
+                  <label for="chat-content">发送消息：</label>
+                  <input type="text" class="form-control" v-model="message" />
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary">
+                    发送
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -78,8 +80,13 @@ export default {
   data() {
     return {
       onlineList: [],
-      chatList: []
+      chatList: [],
+      message: ""
     };
+  },
+
+  methods: {
+    sendMessage() {}
   }
 };
 </script>
