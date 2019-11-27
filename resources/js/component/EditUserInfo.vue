@@ -2,6 +2,7 @@
   <div>
     <div
       class="modal fade bd-example-modal-lg"
+      id="edit-user-info"
       tabindex="-1"
       role="dialog"
       aria-hidden="true"
@@ -84,39 +85,18 @@
               class="btn btn-primary"
               @click="storeUserInfo"
             >
-              保存修改
+              保存
             </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div aria-live="assertive" aria-atomic="true">
-      <!-- Then put toasts within -->
-      <div
-        class="toast mr-3 mt-3"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -200%);"
-        data-delay="1500"
-      >
-        <div class="toast-header">
-          <strong class="mr-auto">提示</strong>
-          <button
-            type="button"
-            class="ml-2 mb-1 close"
-            data-dismiss="toast"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="toast-body pl-5 pr-5">
-          修改成功
-        </div>
-      </div>
-    </div>
+    <common-toast
+      idValue="toast"
+      title="提示"
+      content="修改成功"
+    ></common-toast>
   </div>
 </template>
 
@@ -153,7 +133,7 @@ export default {
       const res = await this.$http.put("/userinfo", this.formData);
       if (res.status === 200) {
         $(".bd-example-modal-lg").modal("hide");
-        $(".toast").toast("show");
+        $("#toast").toast("show");
       }
     }
   }

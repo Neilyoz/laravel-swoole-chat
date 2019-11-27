@@ -33,3 +33,5 @@ Route::post('/upload', 'UploadController@upload');
 
 Route::get('/userinfo', 'UserController@userInfo');
 Route::put('/userinfo', 'UserController@update');
+Route::post('/add-friend', 'UserController@addFriend');
+Route::get('/friend-list', 'UserController@friendList');
