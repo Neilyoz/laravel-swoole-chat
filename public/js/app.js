@@ -2517,12 +2517,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     // 处理接收信息
     handleMessage: function handleMessage(data) {
-      console.log(data);
-
-      var friend = _.find(this.friendList, function (item) {
+      var friend = JSON.parse(JSON.stringify(_.find(this.friendList, function (item) {
         return +item.id === +data.from;
-      });
-
+      })));
       friend.message = data.content;
       this.chatList.push(friend);
     },

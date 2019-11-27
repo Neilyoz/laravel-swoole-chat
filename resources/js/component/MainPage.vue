@@ -171,10 +171,13 @@ export default {
 
     // 处理接收信息
     handleMessage(data) {
-      console.log(data);
-      const friend = _.find(this.friendList, item => {
-        return +item.id === +data.from;
-      });
+      const friend = JSON.parse(
+        JSON.stringify(
+          _.find(this.friendList, item => {
+            return +item.id === +data.from;
+          })
+        )
+      );
       friend.message = data.content;
 
       this.chatList.push(friend);
